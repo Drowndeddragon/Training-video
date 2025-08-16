@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Full Screen Video</title>
+<style>
+    html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        overflow: hidden;
+        background: black;
+        cursor: pointer; /* indicates click needed for sound */
+    }
+
+    video {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        transform: translate(-50%, -50%);
+        object-fit: cover;
+    }
+</style>
+</head>
+<body>
+<video id="myVideo" loop>
+    <source src="video.mp4" type="video/mp4">
+    Your browser does not support HTML5 video.
+</video>
+
+<script>
+const video = document.getElementById('myVideo');
+
+// Play video with sound on first click
+document.body.addEventListener('click', () => {
+    video.play();
+}, { once: true });
+</script>
+</body>
+</html>
